@@ -28,38 +28,38 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(teste2 C CXX ASM)
+project(isr_analog C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(teste2 teste2.c)
+add_executable(isr_analog isr_analog2.c)
 
-pico_set_program_name(teste2 "teste2")
-pico_set_program_version(teste2 "0.1")
+pico_set_program_name(isr_analog "isr_analog")
+pico_set_program_version(isr_analog "0.1")
 
 # Enable USB output, disable UART output
-pico_enable_stdio_usb(teste2 1)
-pico_enable_stdio_uart(teste2 0)
+pico_enable_stdio_usb(isr_analog 1)
+pico_enable_stdio_uart(isr_analog 0)
 
 # Add the standard library to the build
-target_link_libraries(teste2
+target_link_libraries(isr_analog
         pico_stdlib
         hardware_adc
         hardware_irq
 )
 
 # Add the standard include files to the build
-target_include_directories(teste2 PRIVATE
+target_include_directories(isr_analog PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(teste2 
+target_link_libraries(isr_analog 
         hardware_pwm
         )
 
-pico_add_extra_outputs(teste2)
+pico_add_extra_outputs(isr_analog)
 
