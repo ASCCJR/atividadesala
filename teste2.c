@@ -15,6 +15,13 @@
 // necessária para controlar o volume do buzzer, e está conectado através de um
 // transistor que atua como uma chave para controlar a corrente que passa pelo buzzer.
 
+// O codigo original utilizava bool, mas mudei por conta de:
+// Simplicidade: Seu código atual não precisa verificar erros nessas funções
+// Eficiência: Evita processamento desnecessário de valores de retorno
+// Fluxo linear: As funções são "comandos" que sempre executam sua ação
+// Explicação: ativar_buzzer() é um comando ("faça isso"), não uma consulta ("isso foi feito?")
+// Ou seja, não há condições de erro a serem validadas no seu uso atual
+
 // Definições de tempo e limites
 #define INTERVALO_MS 50        // Intervalo de tempo em milissegundos entre cada leitura do joystick
 #define LIMITE_ACIONAMENTO_Y_UP 3500    // Valor limite de leitura do ADC para considerar o joystick pressionado para cima no eixo Y
