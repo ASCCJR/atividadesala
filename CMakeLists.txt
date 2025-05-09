@@ -35,21 +35,20 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(isr_analog isr_analog2.c)
+add_executable(isr_analog isr_analog.c )
 
 pico_set_program_name(isr_analog "isr_analog")
 pico_set_program_version(isr_analog "0.1")
 
-# Enable USB output, disable UART output
-pico_enable_stdio_usb(isr_analog 1)
+# Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(isr_analog 0)
+pico_enable_stdio_usb(isr_analog 1)
 
 # Add the standard library to the build
 target_link_libraries(isr_analog
         pico_stdlib
         hardware_adc
-        hardware_irq
-)
+        hardware_pwm)
 
 # Add the standard include files to the build
 target_include_directories(isr_analog PRIVATE
@@ -58,7 +57,7 @@ target_include_directories(isr_analog PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(isr_analog 
-        hardware_pwm
+        
         )
 
 pico_add_extra_outputs(isr_analog)
