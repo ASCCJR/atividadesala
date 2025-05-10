@@ -118,7 +118,6 @@ O código atual incorpora as seguintes funcionalidades para cumprir os requisito
 4.  **Gestão de Energia**: LEDs desligados em repouso (fora das zonas de acionamento).
 5.  **Temporização Não Bloqueante**: O loop principal não fica preso esperando o buzzer terminar ou o LED piscar.
 
-## 📌 Notas Técnicas
--   **Buzzer**: Requer transistor (ex: BC337) devido à alta corrente que pode demandar.
--   **LEDs**: Cátodo comum com resistor calculado para limitar a corrente (~10mA).
--   **Joystick**: Os valores de limiar (`LIMITE_ACIONAMENTO_...`) podem precisar ser calibrados para o seu modelo específico de joystick e montagem, especialmente após aplicar a média móvel.
+## Propósito
+
+Este projeto foi desenvolvido com fins estritamente educacionais e aprendizdo durante a residência em sistemas embarcados pelo embarcatech
